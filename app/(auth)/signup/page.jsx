@@ -6,11 +6,14 @@ import { useRouter } from 'next/navigation';
 
 export default function SignupPage() {
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    password: '',
-    confirmPassword: ''
-  });
+  name: '',
+  email: '',
+  password: '',
+  confirmPassword: '',
+  age: '',
+  gender: '',
+  mobile: ''
+});
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState('');
   const [success, setSuccess] = useState('');
@@ -25,6 +28,17 @@ export default function SignupPage() {
   };
 
   const validateForm = () => {
+
+    if (!formData.mobile.match(/^[0-9]{10}$/)) {
+  setError('Enter valid 10-digit mobile number');
+  return false;
+}
+
+if (formData.age < 1 || formData.age > 100) {
+  setError('Enter valid age');
+  return false;
+}
+
     if (formData.password !== formData.confirmPassword) {
       setError('Passwords do not match');
       return false;
@@ -53,11 +67,14 @@ export default function SignupPage() {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({
-          name: formData.name,
-          email: formData.email,
-          password: formData.password
-        }),
+       body: JSON.stringify({
+  name: formData.name,
+  email: formData.email,
+  password: formData.password,
+  age: formData.age,
+  gender: formData.gender,
+  mobile: formData.mobile
+}),
       });
 
       if (response.ok) {
@@ -163,6 +180,62 @@ export default function SignupPage() {
                 onChange={handleChange}
               />
             </div>
+
+<div>
+  <label className="block text-sm font-medium text-gray-700">
+    Age
+  </label>
+  <input
+    type="number"
+    name="age"
+    placeholder="Enter your age"
+    value={formData.age}
+    onChange={handleChange}
+    required
+    className="mt-1 w-full px-3 py-2 border rounded-md"
+  />
+</div>
+
+
+
+<div>
+  <label className="block text-sm font-medium text-gray-700">
+    Gender
+  </label>
+  <select
+    name="gender"
+    value={formData.gender}
+    onChange={handleChange}
+    required
+    className="mt-1 w-full px-3 py-2 border rounded-md"
+  >
+    <option value="">Select Gender</option>
+    <option value="male">Male</option>
+    <option value="female">Female</option>
+    <option value="other">Other</option>
+  </select>
+</div>
+
+
+<div>
+  <label className="block text-sm font-medium text-gray-700">
+    Mobile Number
+  </label>
+  <input
+    type="tel"
+    name="mobile"
+    placeholder="Enter mobile number"
+    value={formData.mobile}
+    onChange={handleChange}
+    required
+    className="mt-1 w-full px-3 py-2 border rounded-md"
+  />
+</div>
+
+
+
+
+
           </div>
 
           <div className="flex items-center">
