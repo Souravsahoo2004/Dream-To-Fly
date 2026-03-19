@@ -86,7 +86,7 @@ export default function Header() {
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
             </Link>
             <Link 
-              href="/about" 
+              href="/About" 
               className="hover:text-blue-600 font-medium text-gray-700 transition-colors duration-200 relative group"
             >
               About
