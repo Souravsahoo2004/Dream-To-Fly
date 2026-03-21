@@ -1,4 +1,6 @@
 // app/order/page.jsx
+export const dynamic = 'force-dynamic';
+
 import { Suspense } from 'react';
 import OrderContent from './OrderContent';
 
