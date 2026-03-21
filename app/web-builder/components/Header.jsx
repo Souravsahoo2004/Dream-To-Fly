@@ -88,7 +88,7 @@ export default function Header() {
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-600 group-hover:w-full transition-all"></span>
             </button>
 
-            <Link href="/Dashboard" className="hover:text-blue-600 font-medium text-gray-700 relative group">
+            <Link href="/dashboard" className="hover:text-blue-600 font-medium text-gray-700 relative group">
               Dashboard
             </Link>
 
@@ -98,6 +98,10 @@ export default function Header() {
 
             <Link href="/contact" className="hover:text-blue-600 font-medium text-gray-700 relative group">
               Contact Us
+            </Link>
+
+            <Link href="/order" className="hover:text-blue-600 font-medium text-gray-700 relative group">
+              Orders
             </Link>
 
             <Link href="/About" className="hover:text-blue-600 font-medium text-gray-700 relative group">

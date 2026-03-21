@@ -1,0 +1,7 @@
+export const technologies = [ ... ]
+export const packages = [ ... ]
+export const portfolio = [ ... ]
+export const testimonials = [ ... ]
+export const processSteps = [ ... ]
+export const whyChooseUs = [ ... ]
+export const comparisonData = [ ... ]
